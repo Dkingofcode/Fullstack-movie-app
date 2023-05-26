@@ -3,10 +3,10 @@ import mongodb from "mongodb";
 //import ReviesDAO from "./dao/reviewsDAO";
 
 
-const  MongoClient = mongodb.MongoClient
+const MongoClient = mongodb.MongoClient
 const mongo_username = process.env["MONGO_USERNAME"]
 const mongo_password = process.env["MONGO_PASSWORD"]
-const uri = `mongodb+srv://${mongo_username}:${mongo_password}@cluster0.xdmae.mongodb.net/test` 
+const uri = `mongodb+srv://kdavidmongoose2001A:<password>@cluster0.xdmae.mongodb.net/?retryWrites=true&w=majority` 
 
 const port  = 8000
 
