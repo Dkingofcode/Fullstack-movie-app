@@ -4,9 +4,9 @@ import mongodb from "mongodb";
 
 
 const MongoClient = mongodb.MongoClient
-const mongo_username = process.env["MONGO_USERNAME"]
-const mongo_password = process.env["MONGO_PASSWORD"]
-const uri = `mongodb+srv://kdavidmongoose2001A:<password>@cluster0.xdmae.mongodb.net/?retryWrites=true&w=majority` 
+const mongo_username = process.env["MONGO_ATLAS_USERNAME"]
+const mongo_password = process.env["MONGO_ATLAS_PW"]
+const uri = `mongodb+srv://${mongo_username}:<${mongo_password}>@cluster0.xdmae.mongodb.net/?retryWrites=true&w=majority` 
 
 const port  = 8000
 
@@ -20,6 +20,7 @@ MongoClient.connect(
         console.error(err.stack)
         process.exit(1)
     }).then(async client => {
+        await ReviewsDAO.injectDB(client)
         app.listen(port, () => {console.log(`listening on port ${port}`)})
     })
 
